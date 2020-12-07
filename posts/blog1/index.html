@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>darknet安装和配置(详细)-win10 &middot; Augooh</title>
+
+<link rel="stylesheet" href="https://augooh.github.io/css/main.min.7de4cf4e7f41c54365922b134103b1093de24b267e44ff3f86d9353b4277b639122384b69ab60ebe0bb4e746a0d141cf768abd9a7eddd7dd40133a2b2ace0fa1.css" integrity="sha512-feTPTn9BxUNlkisTQQOxCT3iSyZ&#43;RP8/htk1O0J3tjkSI4S2mrYOvgu050ag0UHPdoq9mn7d191AEzorKs4PoQ==" type="text/css" />
+<body class="container">
+<main>
+	<header>
+		<h1 class="underline">darknet安装和配置(详细)-win10</h1>
+		<p class="date">07 Dec 2020</p>
+	</header>
+	<article>
+		<h1 id="darknet安装和配置详细-win10">darknet安装和配置(详细)-win10</h1>
+<p>[toc]</p>
+<h2 id="1下载darknetwin版">1.下载darknet（Win版）</h2>
+<p>github中有各个版本的darknet：
+  <a href="https://github.com/AlexeyAB/darknet">适用于win、linux</a>
+  <a href="https://github.com/pjreddie/darknet">适用于linux</a></p>
+<h2 id="2安装系列需要的软件">2.安装系列需要的软件</h2>
+<h3 id="avisualstudio">a.VisualStudio</h3>
+<p>  由于darknet.sln是VS2015版本，为了简化后续过程，这里安装<a href="https://my.visualstudio.com/Downloads?q=visual%20studio%202015&amp;wt.mc_id=o~msft~vscom~older-downloads">VS2015</a>。</p>
+<h3 id="bopencv">b.Opencv</h3>
+<p>  根据所安装的VS版本安装对应的Opencv(vc10-VS2010; vc11-VS2012; vc12-VS2013; vc14-VS2015; vc15-VS2017)
+  我们在这里安装版本为<a href="https://sourceforge.net/projects/opencvlibrary/files/4.5.0/opencv-4.5.0-vc14_vc15.exe/download"> /4.5.0/opencv-4.5.0-vc14_vc15.exe</a>
+  在环境变量Path添加<code>安装路径\opencv\build\x64\vc15\bin</code>
+  使用VS对Opencv环境配置：
+    新建控制台程序
+<img src="https://i.bmp.ovh/imgs/2020/12/2f87a2a811ed7413.png" alt=""></p>
+<p>    在新建的项目属性页【通用属性】 -&gt;【VC++目录】 -&gt;【包含目录】添加：</p>
+<pre><code>    路径\opencv\opencv\build\include             
+    路径\opencv\opencv\build\include\opencv
+    路径\opencv\opencv\build\include\opencv2
+</code></pre><p>    在新建的项目属性页【通用属性】 -&gt;【VC++目录】 -&gt;【库目录】添加：</p>
+<pre><code>    路径\opencv\opencv\build\x64\vc15\lib
+</code></pre><p>    在新建的项目属性页【通用属性】 -&gt;【链接器】-&gt;【输入】-&gt;【附加的依赖项】添加：</p>
+<pre><code>    opencv_world450d.lib
+    opencv_world450.libx//最好在自己的Opencv文件夹中找到这两个文件，版本不同数字可能不同；
+</code></pre><h3 id="ccuda和cudnn">c.Cuda和CUDNN</h3>
+<p>    打开NVIDIA控制面板-系统信息：查看电脑对应的CUDA版本，在<a href="https://developer.nvidia.com/cuda-downloads">官网</a>下载对应版本。
+    完成后在环境变量Path中添加所需路径：</p>
+<pre><code>    CUDA_SDK_PATH = C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.0 
+    CUDA_LIB_PATH = %CUDA_PATH%\lib\x64 
+    CUDA_BIN_PATH = %CUDA_PATH%\bin 
+    CUDA_SDK_BIN_PATH = %CUDA_SDK_PATH%\bin\win64 
+    CUDA_SDK_LIB_PATH = %CUDA_SDK_PATH%\common\lib\x64 
+</code></pre><p>    <a href="https://developer.nvidia.com/rdp/cudnn-download">CUDNN下载</a>，需要注册账号。</p>
+<p>    将下载下来的包解压缩后应该是三个文件夹，对应名称copy到CUDA的安装目录下的对应文件夹。最后把C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\lib\x64添加到环境变量中。</p>
+<p>    在VS2015中对CUDA进行配置：
+<em>注意：最好先安装VS再安装CUDA，否则VS中无法创建cuda文件，如果出现这种情况，删除programfile（x64）中所有与NVIDIA有关的文件夹后，重新安装CUDA。</em>
+    1）创建CUDA项目cudatest
+<img src="https://ftp.bmp.ovh/imgs/2020/12/8ff7db472cf75c9e.png" alt="">
+    2）上方操作栏选择release+x86
+    3）打开项目属性页
+    VC++目录-包含目录添加<code>$(CUDA_PATH)\include</code>
+    vc++目录-库目录添加<code>$(CUDA_PATH)\lib\x64</code>
+    链接器-依赖项添加</p>
+<pre><code>    cudart_static.lib
+    kernel32.lib
+    user32.lib
+    gdi32.lib
+    winspool.lib
+    comdlg32.lib
+    advapi32.lib
+    shell32.lib
+    ole32.lib
+    oleaut32.lib
+    uuid.lib
+    odbc32.lib
+    odbccp32.lib
+    cuda.lib
+</code></pre><p>    4）对项目进行rebuild
+<em>遇到的问题</em>：
+   <code>LINK : fatal error LNK1104: 无法打开文件“opencv_world450d.lib”</code>
+  解决：在库目录和包含目录分别添加opencv_world450d.lib所在文件夹路径；在依赖项添加<code>路径/opencv_world450d.lib</code>（在CUDA linker中的依赖项也可以将其添加上）。
+<img src="https://answers.opencv.org/upfiles/1513783240446617.jpg!%5B54%5BGB0E%7BV" alt="3">5K0V%(C~T2]AS](/assets/54[GB0E{V)5K0V%(C~T2]AS.png)<img src="/assets/54%5BGB0E%7BV" alt="54[GB0E{V)5K0V%(C~T2]AS">5K0V%(C~T2]AS_b6x0j6shs.png))</p>
+<h2 id="3-编译darknet">3. 编译darknet</h2>
+<p>  1）.\darknet\build\darknet修改darknet.vcxproj文件，修改为自己对应的CUDA版本。
+  2）按需修改Makefile中前四项</p>
+<pre><code>    GPU=1
+    CUDNN=1
+    CUDNN_HALF=1
+    OPENCV=1
+</code></pre><p><img src="https://i.bmp.ovh/imgs/2020/12/443028939f0b6134.png" alt="">
+  3)安装<a href="https://cygwin.com/setup-x86_64.exe?spm=a2c6h.13651104.0.0.4ef577f4OP3PoX&amp;file=setup-x86_64.exe">cygwin</a>
+    下载时选择<code>Install from Internet</code>；URL处输入<code>http://mirrors.aliyun.com/cygwin/</code>。
+    选择要安装的包时搜索make，选择devel下所有make相关文件以及其他描述中与执行make有关的包。
+    打开cygmake.exe到darknet所在目录键入make，即可生成darknet.exe.
+<img src="https://i.bmp.ovh/imgs/2020/12/28ca85a4bd999239.png" alt=""></p>
+<p><em>至此，配置完毕。</em></p>
+
+	</article>
+</main>
+<footer>
+  <nav class="footer-nav">
+    <ul>
+      <li><a href="https://augooh.github.io">archive</a></li>
+      <li><a href="mailto:goodhao0618@hotmail.com">email</a></li>
+      
+      
+      <li><a href="/posts/about-me/">about</a></li>
+      
+      <li><a href="https://github.com/augooh">github</a></li>
+      
+      <li><a href="/"></a></li>
+      
+      
+      <li></li>
+    </ul>
+  </nav>
+  <p>&copy; 2020 augooh</p>
+</footer>
+<script data-goatcounter="https://blog_augooh.goatcounter.com/count"
+  async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
