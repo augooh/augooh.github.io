@@ -13,7 +13,7 @@
       <pubDate>Mon, 07 Dec 2020 23:40:33 +0800</pubDate>
       
       <guid>https://augooh.github.io/posts/blog1/</guid>
-      <description>darknet安装和配置(详细)-win10 [toc]
+      <description>darknet安装和配置(详细)-win10 @[TOC]
 1.下载darknet（Win版） github中有各个版本的darknet： 适用于win、linux 适用于linux
 2.安装系列需要的软件 a.VisualStudio  由于darknet.sln是VS2015版本，为了简化后续过程，这里安装[VS2015] (https://my.visualstudio.com/Downloads?q=visual%20studio%202015&amp;amp;wt.mc_id=o~msft~vscom~older-downloads)。
 b.Opencv  根据所安装的VS版本安装对应的Opencv(vc10-VS2010; vc11-VS2012; vc12-VS2013; vc14-VS2015; vc15-VS2017) 我们在这里安装版本为/4.5.0/opencv-4.5.0-vc14_vc15.exe
