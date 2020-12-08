@@ -67,14 +67,14 @@
    <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 2020-12-07</small></p> <hr/>
    <div class="post">
      <h1 id="darknet安装和配置详细-win10">darknet安装和配置(详细)-win10</h1>
-<p>@[TOC]</p>
+<p>[TOC]</p>
 <h2 id="1下载darknetwin版">1.下载darknet（Win版）</h2>
 <p>github中有各个版本的darknet：  <br>
-  <a href="https://github.com/AlexeyAB/darknet">适用于win、linux</a> <!-- raw HTML omitted -->    <br>
-  <a href="https://github.com/pjreddie/darknet">适用于linux</a></p>
+   <a href="https://github.com/AlexeyAB/darknet">适用于win、linux</a><!-- raw HTML omitted -->    <br>
+   <a href="https://github.com/pjreddie/darknet">适用于linux</a></p>
 <h2 id="2安装系列需要的软件">2.安装系列需要的软件</h2>
 <h3 id="avisualstudio">a.VisualStudio</h3>
-<p>  由于darknet.sln是VS2015版本，为了简化后续过程，这里安装[VS2015]   (<a href="https://my.visualstudio.com/Downloads?q=visual%20studio%202015&amp;wt.mc_id=o~msft~vscom~older-downloads">https://my.visualstudio.com/Downloads?q=visual%20studio%202015&amp;wt.mc_id=o~msft~vscom~older-downloads</a>)。</p>
+<p>  由于darknet.sln是VS2015版本，为了简化后续过程，这里安装 <a href="https://my.visualstudio.com/Downloads?q=visual%20studio%202015&amp;wt.mc_id=o~msft~vscom~older-downloads">VS2015</a>。</p>
 <h3 id="bopencv">b.Opencv</h3>
 <p>  根据所安装的VS版本安装对应的Opencv(vc10-VS2010; vc11-VS2012;   vc12-VS2013; vc14-VS2015; vc15-VS2017)   <br>
   我们在这里安装版本为<a href="https://sourceforge.net/projects/opencvlibrary/files/4.5.0/opencv-4.5.0-vc14_vc15.exe/download"> /4.5.0/opencv-4.5.0-vc14_vc15.exe</a><br>
@@ -127,8 +127,7 @@
 </code></pre><p>    4）对项目进行rebuild
 <em>遇到的问题</em>：
    <code>LINK : fatal error LNK1104: 无法打开文件“opencv_world450d.lib”</code><br>
-  解决：在库目录和包含目录分别添加opencv_world450d.lib所在文件夹路径；在依赖项添加<code>路径/opencv_world450d.lib</code>（在CUDA linker中的依赖项也可以将其添加上）。 <br>
-<img src="https://answers.opencv.org/upfiles/1513783240446617.jpg!%5B54%5BGB0E%7BV" alt="3">5K0V%(C~T2]AS](/assets/54[GB0E{V)5K0V%(C~T2]AS.png)<img src="/assets/54%5BGB0E%7BV" alt="54[GB0E{V)5K0V%(C~T2]AS">5K0V%(C~T2]AS_b6x0j6shs.png))</p>
+  解决：在库目录和包含目录分别添加opencv_world450d.lib所在文件夹路径；在依赖项添加<code>路径/opencv_world450d.lib</code>（在CUDA linker中的依赖项也可以将其添加上）。</p>
 <h2 id="3-编译darknet">3. 编译darknet</h2>
 <p>  1）.\darknet\build\darknet修改darknet.vcxproj文件，修改为自己对应的CUDA版本。 <br>
   2）按需修改Makefile中前四项</p>
