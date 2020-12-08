@@ -15,8 +15,11 @@
       <guid>https://augooh.github.io/posts/blog1/</guid>
       <description>darknet安装和配置(详细)-win10 [toc]
 1.下载darknet（Win版） github中有各个版本的darknet： 适用于win、linux 适用于linux
-2.安装系列需要的软件 a.VisualStudio  由于darknet.sln是VS2015版本，为了简化后续过程，这里安装VS2015。
-b.Opencv  根据所安装的VS版本安装对应的Opencv(vc10-VS2010; vc11-VS2012; vc12-VS2013; vc14-VS2015; vc15-VS2017) 我们在这里安装版本为/4.5.0/opencv-4.5.0-vc14_vc15.exe 在环境变量Path添加安装路径\opencv\build\x64\vc15\bin 使用VS对Opencv环境配置： 新建控制台程序  在新建的项目属性页【通用属性】 -&amp;gt;【VC++目录】 -&amp;gt;【包含目录】添加：
+2.安装系列需要的软件 a.VisualStudio  由于darknet.sln是VS2015版本，为了简化后续过程，这里安装[VS2015] (https://my.visualstudio.com/Downloads?q=visual%20studio%202015&amp;amp;wt.mc_id=o~msft~vscom~older-downloads)。
+b.Opencv  根据所安装的VS版本安装对应的Opencv(vc10-VS2010; vc11-VS2012; vc12-VS2013; vc14-VS2015; vc15-VS2017) 我们在这里安装版本为/4.5.0/opencv-4.5.0-vc14_vc15.exe
+在环境变量Path添加安装路径\opencv\build\x64\vc15\bin 使用VS对Opencv环境配置：
+新建控制台程序
+ 在新建的项目属性页【通用属性】 -&amp;gt;【VC++目录】 -&amp;gt;【包含目录】添加：
  路径\opencv\opencv\build\include 路径\opencv\opencv\build\include\opencv 路径\opencv\opencv\build\include\opencv2  在新建的项目属性页【通用属性】 -&amp;gt;【VC++目录】 -&amp;gt;【库目录】添加：
  路径\opencv\opencv\build\x64\vc15\lib  在新建的项目属性页【通用属性】 -&amp;gt;【链接器】-&amp;gt;【输入】-&amp;gt;【附加的依赖项】添加：
  opencv_world450d.lib opencv_world450.libx//最好在自己的Opencv文件夹中找到这两个文件，版本不同数字可能不同； c.Cuda和CUDNN  打开NVIDIA控制面板-系统信息：查看电脑对应的CUDA版本，在官网下载对应版本。 完成后在环境变量Path中添加所需路径：
