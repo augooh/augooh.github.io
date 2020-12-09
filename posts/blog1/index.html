@@ -102,9 +102,8 @@
 <p>    在VS2015中对CUDA进行配置： <br>
 <em>注意：最好先安装VS再安装CUDA，否则VS中无法创建cuda文件，如果出现这种情况，删除programfile（x64）中所有与NVIDIA有关的文件夹后，重新安装CUDA。</em> <br>
     1）创建CUDA项目cudatest     <br>
-<img src="https://ftp.bmp.ovh/imgs/2020/12/8ff7db472cf75c9e.png" alt="">
-<!-- raw HTML omitted -->
-    2）上方操作栏选择release+x86    <br>
+<img src="https://ftp.bmp.ovh/imgs/2020/12/8ff7db472cf75c9e.png" alt=""></p>
+<p>    2）上方操作栏选择release+x86    <br>
     3）打开项目属性页<br>
     VC++目录-包含目录添加<code>$(CUDA_PATH)\include</code><br>
     vc++目录-库目录添加<code>$(CUDA_PATH)\lib\x64</code><br>
@@ -124,7 +123,7 @@
     odbccp32.lib
     cuda.lib
 </code></pre><p>    4）对项目进行rebuild
-<em>遇到的问题</em>：
+<em>遇到的问题</em>：  <br>
    <code>LINK : fatal error LNK1104: 无法打开文件“opencv_world450d.lib”</code><br>
   解决：在库目录和包含目录分别添加opencv_world450d.lib所在文件夹路径；在依赖项添加<code>路径/opencv_world450d.lib</code>（在CUDA linker中的依赖项也可以将其添加上）。</p>
 <h2 id="3-编译darknet">3. 编译darknet</h2>
