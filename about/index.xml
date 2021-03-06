@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Augooh</title>
+    <link>https://augooh.github.io/about/</link>
+    <description>Recent content in Abouts on Augooh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Dec 2020 16:48:30 +0800</lastBuildDate><atom:link href="https://augooh.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>https://augooh.github.io/about/about-me/</link>
+      <pubDate>Mon, 07 Dec 2020 16:48:30 +0800</pubDate>
+      
+      <guid>https://augooh.github.io/about/about-me/</guid>
+      <description>about me</description>
+    </item>
+    
+  </channel>
+</rss>

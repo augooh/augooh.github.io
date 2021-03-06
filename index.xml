@@ -6,7 +6,28 @@
     <description>Recent content on Augooh</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Dec 2020 23:40:33 +0800</lastBuildDate><atom:link href="https://augooh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Mar 2021 16:51:07 +0800</lastBuildDate><atom:link href="https://augooh.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Counterfactual Regret Minimization - 在德州扑克中AI如何击败专业玩家</title>
+      <link>https://augooh.github.io/posts/blog2/</link>
+      <pubDate>Sat, 06 Mar 2021 16:51:07 +0800</pubDate>
+      
+      <guid>https://augooh.github.io/posts/blog2/</guid>
+      <description>1. 介绍  近十年来，经过难以预料的发展AI已经在各项比赛中赢过人类且获得了极大的关注，例如《Dota2》和《雅达利战争》，特别是作为第一次拥有超人类表现的人工智能-AlphaGo。
+1.1 DeepStack  继Cepheus（Cepheus有大量研究人员所编写的算法程序，理解游戏规则且不断练习，使用多达4000个CPU，在每一次出牌时进行60亿次运算。）后，吹嘘拿了另一个成功的能在无限制版本的德扑与人类比赛的机器人——DeepStack，它使用了以神经网络为核心的连续重解析。重解析是子游戏解决技术之一。子游戏从父节点中分离出，是植根于当前决策点的游戏树。即重解析是一种仅在给定决策点为游戏的其余部分重建策略配置文件的技术。
+ DeepStack在整个游戏中只保留两个向量，这两个向量足以连续重建在当前决策点中近似纳什均衡的配置文件。
+ DeepStack中，深度神经网络用于克服其创造者提出的与连续重求解有关的计算复杂性。这个复杂性问题来源于对游戏中所有决策点的反事实值向量重新计算。简单的方法是应用反事实后悔最小化求解器，但这实际上是不可行的。Deepstack通过限制反事实后悔最小化求解器的深度和广度来处理此问题。其广度受动作抽象的限制（仅弃牌，跟注，2或3个下注动作，且全押有效），而深度则通过在反事实价值计算过程的某个深度使用值函数（由深度神经网络估计）来限制。
+ 经过实验的测试，DeepStack能够打败所有的人类玩家，亦是首位赢得无限制德扑游戏中的人工智能。
+1.2 Libratus  Libratus是另一个在扑克上有超人表现的AI。
+ Libratus所用的三种主要思想：
+1)蒙特卡洛后悔反事实最小化计算的蓝图策略
+2)对嵌套子游戏的解决
+3)游戏中的自我改善
+2. 博弈论基础 2.1 纳什均衡  纳什均衡是一种没有任何玩家有动机偏离的策略组合， 它代表了玩家之间的平衡，无论对方的策略如何，玩家都会选择一个确定的策略。 如果改变一名球员的策略没有带来任何额外的利益，且另一名球员采用原始策略，那么这两名球员在为纳什均衡策略–两名球员所选择的策略都是最优的。在德扑游戏中纳什均衡一定存在可以由纳什均衡的存在性定理得知。
+ 极大极小定理证明了对于两个参与者零和有限游戏来说，存在最佳的单一效用，即博弈值，这两个玩家都处于均衡收益状态。
+ 博弈树是一种非常简便的表示诸如扑克之类的游戏的方法，节点代表游戏状态，而节点的连线代表玩家动作。但德扑的游戏树与完美信息游戏树（如国际象棋或围棋等）有不同之处，主要由于玩家只能站在自己的视角（只掌握自己的信息集），而对对手的牌或动作无法区分，两个玩家的游戏树交点只能由真实游戏状态决定。</description>
+    </item>
+    
     <item>
       <title>darknet安装和配置(详细)-win10</title>
       <link>https://augooh.github.io/posts/blog1/</link>
@@ -23,6 +44,34 @@ b.Opencv  根据所安装的VS版本安装对应的Opencv(vc10-VS2010; vc11-VS
  opencv_world450d.lib opencv_world450.libx//最好在自己的Opencv文件夹中找到这两个文件，版本不同数字可能不同； c.Cuda和CUDNN  打开NVIDIA控制面板-系统信息：查看电脑对应的CUDA版本，在官网下载对应版本。 完成后在环境变量Path中添加所需路径：
  CUDA_SDK_PATH = C:\ProgramData\NVIDIA Corporation\CUDA Samples\v9.0 CUDA_LIB_PATH = %CUDA_PATH%\lib\x64 CUDA_BIN_PATH = %CUDA_PATH%\bin CUDA_SDK_BIN_PATH = %CUDA_SDK_PATH%\bin\win64 CUDA_SDK_LIB_PATH = %CUDA_SDK_PATH%\common\lib\x64  CUDNN下载，需要注册账号。
  将下载下来的包解压缩后应该是三个文件夹，对应名称copy到CUDA的安装目录下的对应文件夹。最后把C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>https://augooh.github.io/about/about-me/</link>
+      <pubDate>Mon, 07 Dec 2020 16:48:30 +0800</pubDate>
+      
+      <guid>https://augooh.github.io/about/about-me/</guid>
+      <description>about me</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://augooh.github.io/posts/blog2-counterfactual-regret-minimization/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://augooh.github.io/posts/blog2-counterfactual-regret-minimization/</guid>
+      <description>Counterfactual Regret Minimization - 在德州扑克中AI如何击败专业玩家 1. 介绍  近十年来，经过难以预料的发展AI已经在各项比赛中赢过人类且获得了极大的关注，例如《Dota2》和《雅达利战争》，特别是作为第一次拥有超人类表现的人工智能-AlphaGo。
+1.1 DeepStack  继Cepheus（Cepheus有大量研究人员所编写的算法程序，理解游戏规则且不断练习，使用多达4000个CPU，在每一次出牌时进行60亿次运算。）后，吹嘘拿了另一个成功的能在无限制版本的德扑与人类比赛的机器人——DeepStack，它使用了以神经网络为核心的连续重解析。重解析是子游戏解决技术之一。子游戏从父节点中分离出，是植根于当前决策点的游戏树。即重解析是一种仅在给定决策点为游戏的其余部分重建策略配置文件的技术。
+ DeepStack在整个游戏中只保留两个向量，这两个向量足以连续重建在当前决策点中近似纳什均衡的配置文件。
+ DeepStack中，深度神经网络用于克服其创造者提出的与连续重求解有关的计算复杂性。这个复杂性问题来源于对游戏中所有决策点的反事实值向量重新计算。简单的方法是应用反事实后悔最小化求解器，但这实际上是不可行的。Deepstack通过限制反事实后悔最小化求解器的深度和广度来处理此问题。其广度受动作抽象的限制（仅弃牌，跟注，2或3个下注动作，且全押有效），而深度则通过在反事实价值计算过程的某个深度使用值函数（由深度神经网络估计）来限制。
+ 经过实验的测试，DeepStack能够打败所有的人类玩家，亦是首位赢得无限制德扑游戏中的人工智能。
+1.2 Libratus  Libratus是另一个在扑克上有超人表现的AI。
+ Libratus所用的三种主要思想：
+1)蒙特卡洛后悔反事实最小化计算的蓝图策略
+2)对嵌套子游戏的解决
+3)游戏中的自我改善
+2. 博弈论基础 2.1 纳什均衡  纳什均衡是一种策略组合（针对所有参与其中的玩家的策略集），因此没有任何玩家有动机偏离。 它代表了玩家之间的平衡，在这一点上，没有玩家能从改变自己的策略中获益。 我们说如果改变一名球员的策略没有带来任何额外的利益且另一名球员才永远是策略，那么这两名球员在采用纳什均衡策略组–两名球员都对相互做出最好的反应。</description>
     </item>
     
   </channel>

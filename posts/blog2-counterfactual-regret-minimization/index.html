@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.79.0" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Augooh" />
+  <link href="https://augooh.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://augooh.github.io/css/hc.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+<div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+      <div id = "wrapper">
+
+
+<div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="https://augooh.github.io/"><p class="navbar-brand">Augooh</p></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+					
+					
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+       <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+					<img src="" />
+          <li class="sidebar-brand"><a href="https://augooh.github.io/"><h1 class="brand">Augooh</h1></a><h3></h3></li>
+          <hr />
+					
+          <hr />
+          <div id="social-wrapper">
+           
+           
+           
+           
+         </div>
+       </ul>
+     </div>
+
+
+
+     <div class="container">
+
+
+  <div id="article">
+   <div class="article-title"></div>
+   <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 0001-01-01</small></p> <hr/>
+   <div class="post">
+     <h1 id="counterfactual-regret-minimization---在德州扑克中ai如何击败专业玩家">Counterfactual Regret Minimization - 在德州扑克中AI如何击败专业玩家</h1>
+<h2 id="1-介绍">1. 介绍</h2>
+<p>   近十年来，经过难以预料的发展AI已经在各项比赛中赢过人类且获得了极大的关注，例如《Dota2》和《雅达利战争》，特别是作为第一次拥有超人类表现的人工智能-AlphaGo。</p>
+<h3 id="11-deepstack">1.1 DeepStack</h3>
+<p>   继Cepheus（Cepheus有大量研究人员所编写的算法程序，理解游戏规则且不断练习，使用多达4000个CPU，在每一次出牌时进行60亿次运算。）后，吹嘘拿了另一个成功的能在无限制版本的德扑与人类比赛的机器人——DeepStack，它使用了以神经网络为核心的连续重解析。<strong>重解析是子游戏解决技术之一。子游戏从父节点中分离出，是植根于当前决策点的游戏树。即重解析是一种仅在给定决策点为游戏的其余部分重建策略配置文件的技术。</strong></p>
+<p>   DeepStack在整个游戏中只保留两个向量，这两个向量足以连续重建在当前决策点中近似纳什均衡的配置文件。</p>
+<p>   DeepStack中，深度神经网络用于克服其创造者提出的与连续重求解有关的计算复杂性。这个复杂性问题来源于对游戏中所有决策点的反事实值向量重新计算。简单的方法是应用<strong>反事实后悔最小化</strong>求解器，但这实际上是不可行的。Deepstack通过限制反事实后悔最小化求解器的深度和广度来处理此问题。其广度受动作抽象的限制（仅弃牌，跟注，2或3个下注动作，且全押有效），而深度则通过在反事实价值计算过程的某个深度使用值函数（由深度神经网络估计）来限制。</p>
+<p>   经过实验的测试，DeepStack能够打败所有的人类玩家，亦是首位赢得无限制德扑游戏中的人工智能。</p>
+<h3 id="12-libratus">1.2 Libratus</h3>
+<p>   Libratus是另一个在扑克上有超人表现的AI。</p>
+<p>    <strong>Libratus所用的三种主要思想：</strong></p>
+<p>1)蒙特卡洛后悔反事实最小化计算的蓝图策略</p>
+<p>2)对嵌套子游戏的解决</p>
+<p>3)游戏中的自我改善</p>
+<h2 id="2-博弈论基础">2. 博弈论基础</h2>
+<h3 id="21-纳什均衡">2.1 纳什均衡</h3>
+<p>    纳什均衡是一种策略组合（针对所有参与其中的玩家的策略集），因此没有任何玩家有动机偏离。 它代表了玩家之间的平衡，在这一点上，没有玩家能从改变自己的策略中获益。 我们说如果改变一名球员的策略没有带来任何额外的利益且另一名球员才永远是策略，那么这两名球员在采用纳什均衡策略组–两名球员都对相互做出最好的反应。</p>
+
+   </div>
+ </div>
+
+
+ <a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+ <ul class="pager">
+     
+      &nbsp;<li class="next"><a href="https://augooh.github.io/about/about-me/"> About Me</a></li>
+</ul>
+
+
+
+    </ul>
+    </div>
+    <footer>
+
+        <p class="text-muted credit">&copy; 2021. All rights reserved. </p>
+    </footer>
+ 
+    <script src="https://augooh.github.io/js/jquery-1.10.2.min.js"></script>
+    <script src="https://augooh.github.io/js/bootstrap.min.js"></script>
+    <script src="https://augooh.github.io/js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://augooh.github.io/js/hc.js"></script>
+</body>
+
+</html>
+
